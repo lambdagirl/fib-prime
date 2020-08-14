@@ -15,7 +15,7 @@ export function suffixOf(i){
     if (j === 2 && k !== 12){
         return i + 'nd'
     }
-    if (j ==3 && k !== 13){
+    if (j ===3 && k !== 13){
         return i + 'rd'
     }
     return i + 'th'

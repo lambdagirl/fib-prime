@@ -2,7 +2,7 @@ import React from "react";
 import { calculatePrime, suffixOf } from "./math";
 
 function NthPrime({ count, increment }) {
-  const prime = calculatePrime(count);
+  const prime = React.useMemo(() => calculatePrime(count), [count]);
 
   return (
     <div className="container">
@@ -15,4 +15,4 @@ function NthPrime({ count, increment }) {
   );
 }
 
-export default React.memo(NthPrime);
+export default NthPrime;

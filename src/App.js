@@ -3,7 +3,6 @@ import './App.css';
 import NthFib from "./NthFib";
 import NthPrime from "./NthPrime";
 
-
 function App() {
   const [fibCount, setFibCount] = React.useState(1);
   const [primeCount, setPrimeCount] = React.useState(1);
@@ -18,23 +17,19 @@ function App() {
     setPrimeCount((c) => c + 10);
   };
 
-  const incrementFib = React.useCallback(() => setFibCount((c) => c + 1), []);
-  const incrementPrime = React.useCallback(
-    () => setPrimeCount((c) => c + 1),
-    []
-  );
-
   return (
     <React.Fragment>
       <button onClick={add10}>Add 10</button>
       <button onClick={handleReset}>Reset</button>
       <hr />
-      <NthFib count={fibCount} increment={incrementFib} />
+      <NthFib count={fibCount} increment={() => setFibCount((c) => c + 1)} />
       <hr />
-      <NthPrime count={primeCount} increment={incrementPrime} />
+      <NthPrime
+        count={primeCount}
+        increment={() => setPrimeCount((c) => c + 1)}
+      />
     </React.Fragment>
   );
 }
-
 
 export default App;
